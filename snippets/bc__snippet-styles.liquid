@@ -1,0 +1,59 @@
+{% assign class__background = "background" | append: index %}
+{% assign class__text = "text" | append: index %}
+{% assign class__heading = "heading" | append: index %}
+{% assign class__border = "border" | append: index %}
+{% assign class__innerBackground = "innerBackground" | append: index %}
+
+{% comment %}
+Ensure you use {{ class__background }} inside snippets you include this styling 
+in so any changes to the variable value takes effect.
+{% endcomment %}
+<style>
+{% if background-color != "" or background-image != "" %}  
+ .{{ class__background }}{
+  {% if background-image != blank %}
+    background-repeat: {% if repeat-background %} repeat {% else %} no-repeat {% endif %} !important;
+  	background-size: {{ background-size }} !important;
+ 	background-position: center;
+ 	background: url({{ background-image | img_url: '1800x' }});
+  {% elsif background-color != "" %}
+ 	background: {{ background-color }} !important;
+  {% endif %}
+  }
+{% endif %}
+{% if text-color != "" %}
+  .{{ class__text }}, .{{ class__text }} * {
+    color: {{ text-color }} !important;
+  }
+  /* ==== Recently viewed product titles are added from js ==== */
+  .rv-box-element .title { 
+    color: {{ text-color }} !important; 
+  }
+{% endif %}
+{% if heading-color != "" %}  
+  .{{ class__heading }}{
+    color: {{ heading-color }} !important;
+  }
+{% endif %}
+{% if border-color != "" %}  
+  .{{ class__border }}{
+     border-color: {{ border-color }} !important;
+    border-bottom: 1px solid;
+  }
+{% endif %}
+{% if innerBackground != "" %}
+  .{{ class__innerBackground }} {
+    background: {{ innerBackground }} !important;
+  }
+  .{{ class__text }}{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+{% endif %}
+</style>
+{% assign background-image = "" %}
+{% assign background-color  = "" %}
+{% assign text-color = "" %}
+{% assign heading-color = "" %}
+{% assign border-color  = "" %}
+{% assign innerBackground  = "" %}

@@ -1,0 +1,125 @@
+{% include 'bc__divider' %}
+{% schema %}
+  {
+    "name": "BC Divider",
+    "settings": [
+        {
+          "type": "range",
+          "id": "divider_spacing",
+          "min": 0,
+          "max": 30,
+          "step": 5,
+          "unit": "px",
+          "label": "Space",
+          "default": 20
+        },
+        {
+          "type": "checkbox",
+          "id": "divider_border",
+          "label": "Show border",
+          "default": false
+        },
+		{
+          "type": "color",
+          "id": "border-color",
+          "label": "Border color"
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+	],
+	"presets": [
+    {
+      "name": "Divider",
+      "category": "Blend Commerce",
+      "settings": {
+      }
+    }
+  ]
+  }
+{% endschema %}

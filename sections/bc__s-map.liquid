@@ -1,0 +1,149 @@
+{% include 'bc__map' %}
+{% schema %}
+  {
+    "name": "BC Map",
+    "settings": [
+        {
+          "type": "text",
+          "id": "contact_address",
+          "label": "Street address",
+          "info": "The full address that will be placed on the map."
+        },
+        {
+          "type": "range",
+          "id": "zoom_level",
+          "label": "Map zoom level",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "default": 12
+        },
+        {
+          "type": "range",
+          "id": "map_height",
+          "min": 250,
+          "max": 500,
+          "step": 50,
+          "unit": "px",
+          "label": "Height",
+          "default": 400
+        },
+        {
+          "type": "checkbox",
+          "id": "map_greyscale",
+          "label": "Enable greyscale map",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "map_scrolling",
+          "label": "Enable scrolling",
+          "default": false
+        },
+		{
+          "type": "checkbox",
+          "id": "narrow",
+          "label": "Restrict content width",
+		  "info":"Background elements will only work if this is enabled",
+		  "default": false
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+		
+	],
+	"presets": [
+    {
+      "name": "Map",
+      "category": "Blend Commerce",
+      "settings": {
+      }
+    }
+  ]
+  }
+{% endschema %}

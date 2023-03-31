@@ -1,0 +1,51 @@
+
+{% if type == 'block' %}
+  {% assign content_page = block.settings.content_page %}
+  {% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = block.settings.master-class %}
+  {% assign background-image = block.settings.background-image %}
+  {% assign background-color = block.settings.background-color %}
+  {% assign repeat-background = block.settings.repeat-background %}
+  {% assign background-size = block.settings.background-size %}
+  {% assign gradient_overlay = block.settings.gradient_overlay %}
+  {% assign gradient_direction = block.settings.gradient_direction%}
+  {% assign gradient_1 = block.settings.gradient_1 %}
+  {% assign gradient_2 = block.settings.gradient_2 %}
+  {% assign text-color = block.settings.text-color %}
+  {% assign narrow = block.settings.narrow %}
+  {% assign index = block.id %}
+  {% assign innerBackground = block.settings.innerBackground %}
+{% else %}
+  {% assign content_page = section.settings.content_page %}
+  {% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = section.settings.master-class %}
+  {% assign background-image = section.settings.background-image %}
+  {% assign background-color = section.settings.background-color %}
+  {% assign repeat-background = section.settings.repeat-background %}
+  {% assign background-size = section.settings.background-size %}
+  {% assign gradient_overlay = section.settings.gradient_overlay %}
+  {% assign gradient_direction = section.settings.gradient_direction%}
+  {% assign gradient_1 = section.settings.gradient_1 %}
+  {% assign gradient_2 = section.settings.gradient_2 %}
+  {% assign text-color = section.settings.text-color %}
+  {% assign narrow = section.settings.narrow %}
+  {% assign index = section.id %}
+{% endif %}
+
+{% include "bc__snippet-styles" %}
+
+<div class="{{ block.settings.display-mode }} {{ master-class }} {{ class__background }} homepage_content featured_content clearfix">
+  <div class="container content {{ class__innerBackground }}">
+    <div class="{% if narrow %} offset-by-two twelve{% else %}sixteen{% endif %} columns">
+      <div class="{{ class__text }} section clearfix">
+        {% if content_page != blank %}
+          {% capture pmc_content %}{{ pages[content_page].content }}{% endcapture %}{% include 'page-multi-column', content: pmc_content %}
+        {% else %}
+          <p class="{{ class__text }} center">
+            {{ 'homepage.onboarding.no_content' | t }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

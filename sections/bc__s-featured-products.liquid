@@ -1,0 +1,214 @@
+{% include 'bc__featured-products' %}
+
+{% schema %}
+{
+  "name": "Featured products",
+  "class": "featured-products-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "frontpage_product_stagger",
+      "label": "Stagger products left and right",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "gallery_arrows",
+      "label": "Show arrows on product gallery"
+    },
+    {
+      "type": "checkbox",
+      "id": "activate_zoom",
+      "label": "Magnify product images on hover"
+    },
+    {
+      "type": "checkbox",
+      "id": "activate_autoplay",
+      "label": "Enable product gallery slideshow"
+    },
+    {
+      "type": "select",
+      "id": "slideshow_animation",
+      "label": "Gallery transition",
+      "options": [
+        {
+          "value": "slide",
+          "label": "Slide"
+        },
+        {
+          "value": "fade",
+          "label": "Fade"
+        }
+      ],
+      "default": "slide"
+    },
+    {
+      "type": "header",
+      "content": "Product info"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_vendor",
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_savings",
+      "label": "Show price savings",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_button",
+      "label": "Show dynamic checkout button",
+      "default": false,
+      "info": "Lets customers check out directly using a familiar payment method. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
+    },
+    {
+      "type": "checkbox",
+      "id": "frontpage_display_description",
+      "label": "Show product description",
+      "default": true
+    },
+    {
+      "type": "radio",
+      "id": "product_description_position",
+      "label": "Description position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Above product form"
+        },
+        {
+          "value": "bottom",
+          "label": "Below product form"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "id": "featured_product1",
+      "label": "Product"
+    },
+    {
+      "type": "product",
+      "id": "featured_product2",
+      "label": "Product"
+    },
+		{
+          "type": "color",
+          "id": "heading-color",
+          "label": "Heading color"
+        },
+		{
+          "type": "color",
+          "id": "text-color",
+          "label": "Text color"
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "checkbox",
+          "id": "narrow",
+          "label": "Restrict content width",
+		  "default": false
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+  ],
+  "presets": [{
+    "name": "Featured products",
+    "category": "Blend Commerce",
+    "settings": {
+    }
+  }]
+}
+{% endschema %}

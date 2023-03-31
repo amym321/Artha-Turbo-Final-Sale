@@ -1,0 +1,55 @@
+{% if settings.thumbnail_hover_enabled or settings.quick_shop_enabled and settings.quick_shop_style == 'popup' %}
+  <div class="thumbnail-overlay">
+    <a href="{{ product.url | within: collection }}" itemprop="url" class="hidden-product-link">
+      {{ product.title }}
+    </a>
+
+    <div class="info">
+      {% if settings.thumbnail_hover_enabled %}
+        {%
+          render 'product-info',
+          product: product,
+          collection_handles: collection_handles
+        %}
+      {% endif %}
+
+      {% if settings.quick_shop_enabled and settings.quick_shop_style == 'popup' %}
+        {%
+          render 'quick-shop-button',
+          product: product
+        %}
+      {% endif %}
+    </div>
+  </div>
+
+  {% assign variant = product.selected_or_first_available_variant %}
+  {% if variant.inventory_quantity == 0 %}
+    <div class="join-waitlist">
+      <a href="#waitlist" data-remodal-target="waitlist" data-no-instant class="action_button">Join Waitlist</a>
+    </div>
+    <div class="remodal" data-remodal-id="waitlist" data-remodal-options="hashTracking: false">
+      {% render 'product-notify-me', product: product %}
+    </div>
+  {% elsif variant.inventory_quantity < 4%} 
+    {% assign total = 0 %} 
+    {% for variant in product.variants %} 
+      {% capture count %}{{ total | plus: variant.inventory_quantity }}{% endcapture %} 
+      {% assign total = count | plus: 0 %} 
+    {% endfor %}
+    {% unless total> 3 %}
+      <div class="x-left">
+        <p>{{ total }} left</p>
+      </div>
+    {% endunless %}
+  {% endif %}
+  <div class="banner_holder">
+    {% if product.available %}
+      {% if settings.sale_banner_enabled and product.compare_at_price_max > product.price %}
+        <div class="sale_banner thumbnail_banner">{{ 'collections.general.sale' | t }}</div>
+      {% endif %}
+    {% endif %}
+    {% if collection_handles contains 'pre-order' %}
+      <div class="preorder_banner thumbnail_banner">{{ 'collections.general.pre_order' | t }}</div>
+    {% endif %}
+  </div>
+{% endif %}

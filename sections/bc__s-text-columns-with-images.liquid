@@ -1,0 +1,619 @@
+{% include 'bc__text-columns-images' %}
+
+{% schema %}
+  {
+    "name": "Text columns with images",
+    "class": "text-columns-with-images-section",
+    "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Text columns with images"
+          },
+          {
+            "type": "select",
+            "id": "size",
+            "label": "Number of block",
+            "options": [
+              {
+                "value": "1",
+                "label": "1"
+              },
+              {
+                "value": "2",
+                "label": "2"
+              },
+              {
+                "value": "3",
+                "label": "3"
+              },
+              {
+                "value": "4",
+                "label": "4"
+              },
+              {
+                "value": "5",
+                "label": "5"
+              }
+            ],
+            "default": "2"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image1",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile-image1",
+            "label": "Optional mobile image"
+          },
+          {
+            "type": "text",
+            "id": "heading1",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "select",
+            "id": "heading_size1",
+            "label": "Heading size",
+            "options": [
+              {
+                "value": "regular_text",
+                "label": "Regular"
+              },
+              {
+                "value": "large_text",
+                "label": "Large"
+              }
+            ],
+            "default": "regular_text"
+          },
+          {
+            "type": "richtext",
+            "id": "text1",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "select",
+            "id": "align_text1",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label1",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link1",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "border_style1",
+            "label": "Border style",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "box",
+                "label": "Box"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              }
+            ],
+            "default": "none"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image2",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image2",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile-image2",
+            "label": "Optional mobile image"
+          },
+          {
+            "type": "text",
+            "id": "heading2",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "select",
+            "id": "heading_size2",
+            "label": "Heading size",
+            "options": [
+              {
+                "value": "regular_text",
+                "label": "Regular"
+              },
+              {
+                "value": "large_text",
+                "label": "Large"
+              }
+            ],
+            "default": "regular_text"
+          },
+          {
+            "type": "richtext",
+            "id": "text2",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "select",
+            "id": "align_text2",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label2",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link2",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "border_style2",
+            "label": "Border style",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "box",
+                "label": "Box"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              }
+            ],
+            "default": "none"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image3",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image3",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile-image3",
+            "label": "Optional mobile image"
+          },
+          {
+            "type": "text",
+            "id": "heading3",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "select",
+            "id": "heading_size3",
+            "label": "Heading size",
+            "options": [
+              {
+                "value": "regular_text",
+                "label": "Regular"
+              },
+              {
+                "value": "large_text",
+                "label": "Large"
+              }
+            ],
+            "default": "regular_text"
+          },
+          {
+            "type": "richtext",
+            "id": "text3",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "select",
+            "id": "align_text3",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label3",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link3",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "border_style3",
+            "label": "Border style",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "box",
+                "label": "Box"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              }
+            ],
+            "default": "none"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image4",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image4",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile-image4",
+            "label": "Optional mobile image"
+          },
+          {
+            "type": "text",
+            "id": "heading4",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "select",
+            "id": "heading_size4",
+            "label": "Heading size",
+            "options": [
+              {
+                "value": "regular_text",
+                "label": "Regular"
+              },
+              {
+                "value": "large_text",
+                "label": "Large"
+              }
+            ],
+            "default": "regular_text"
+          },
+          {
+            "type": "richtext",
+            "id": "text4",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "select",
+            "id": "align_text4",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label4",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link4",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "border_style4",
+            "label": "Border style",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "box",
+                "label": "Box"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              }
+            ],
+            "default": "none"
+          },
+          {
+            "type": "checkbox",
+            "id": "enable_image5",
+            "label": "Show image",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "image5",
+            "label": "Image"
+          },
+          {
+            "type": "image_picker",
+            "id": "mobile-image5",
+            "label": "Optional mobile image"
+          },
+          {
+            "type": "text",
+            "id": "heading5",
+            "label": "Heading",
+            "default": "Add a title or tagline"
+          },
+          {
+            "type": "select",
+            "id": "heading_size5",
+            "label": "Heading size",
+            "options": [
+              {
+                "value": "regular_text",
+                "label": "Regular"
+              },
+              {
+                "value": "large_text",
+                "label": "Large"
+              }
+            ],
+            "default": "regular_text"
+          },
+          {
+            "type": "richtext",
+            "id": "text5",
+            "label": "Text",
+            "default": "<p>Share blog posts, products, or promotions with your customers. Use this text to describe products, share details on availability and style, or as a space to display recent reviews or FAQs.</p>"
+          },
+          {
+            "type": "select",
+            "id": "align_text5",
+            "label": "Text alignment",
+            "default": "left",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Centered"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "button_label5",
+            "label": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link5",
+            "label": "Button link"
+          },
+          {
+            "type": "select",
+            "id": "border_style5",
+            "label": "Border style",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "box",
+                "label": "Box"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              }
+            ],
+            "default": "none"
+          },
+		{
+          "type": "color",
+          "id": "heading-color",
+          "label": "Heading color"
+        },
+		{
+          "type": "color",
+          "id": "text-color",
+          "label": "Text color"
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+
+    ],
+    "presets": [
+      {
+        "name": "Text columns with images",
+        "category": "Blend Commerce"
+      }
+    ]
+  }
+{% endschema %}

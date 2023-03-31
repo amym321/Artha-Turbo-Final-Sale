@@ -1,0 +1,182 @@
+{% include 'bc__social-feeds' %}
+
+{% schema %}
+
+{
+  "name": "Social feeds",
+  "class": "social-feeds-section",
+  "settings": [
+        {
+          "type": "checkbox",
+          "id": "instagram",
+          "label": "Show Instagram feed",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "instagram_client_id",
+          "label": "Instagram Access Token ([?](https:\/\/outofthesandbox.com\/pages\/instagram-access-token))"
+        },
+        {
+          "type": "text",
+          "id": "instagram_title",
+          "label": "Heading",
+          "default": "Instagram"
+        },
+        {
+          "type": "range",
+          "id": "instagram_count",
+          "label": "Number of images",
+          "min": 2,
+          "max": 12,
+          "step": 2,
+          "default": 6
+        },
+        {
+          "type": "checkbox",
+          "id": "twitter",
+          "label": "Show Twitter feed",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "twitter_username",
+          "label": "Twitter username"
+        },
+        {
+          "type": "text",
+          "id": "twitter_title",
+          "label": "Heading",
+          "default": "Tweets"
+        },
+        {
+          "type": "radio",
+          "id": "twitter_theme",
+          "label": "Twitter feed theme",
+          "default": "light",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "id": "tweet_count",
+          "label": "Number of tweets",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 2
+        },
+		{
+          "type": "color",
+          "id": "heading-color",
+          "label": "Heading color"
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Social feeds",
+      "category": "Blend Commerce",
+      "settings": {
+
+      }
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,5 @@
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}<a name="pagecontent" id="pagecontent"></a>
+
+<div class="sixteen columns page">
+  {% capture pmc_content %}{% comment %}ly_code_replace_for_[ page.content ]_begin{% endcomment %}{% include 'ly-content' with page %}{{ ly_translation }}{% comment %}ly_code_replace_end{% endcomment %}{% endcapture %}{% include 'page-multi-column', content: pmc_content %}
+</div>

@@ -1,0 +1,68 @@
+{% if block.settings.layout == false %}
+<div class="container standard--width">
+  {% endif %}
+  <div class="featured_collections
+              clearfix across-1 image-align--{{ block.settings.frontpage_image_position }}">
+    <section class="featured-link--section featured-link--image section-{{ forloop.index }}">
+      <div class="featured-link--half featured-link--image {% if block.settings.layout == false %}featured-link--margin{% endif %}">
+        <div class="featured-link--wrap">
+          <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} title="{{ block.settings.title }}">
+            {% if block.settings.image %}
+            <img  src="{{ block.settings.image | img_url: '100x' }}"
+                 alt="{% if block.settings.image.alt != blank %}{{ block.settings.image.alt }}{% else %}{{ block.settings.title | escape }}{% endif %}"
+                 class="lazyload full-width-image {{ settings.image_loading_style }}"
+                 data-sizes="auto"
+                 data-src="{{ block.settings.image | img_url: '1400x' }}"
+                 data-srcset=" {{ block.settings.image | img_url: '2048x' }} 2048w,
+                              {{ block.settings.image | img_url: '1600x' }} 1600w,
+                              {{ block.settings.image | img_url: '1200x' }} 1200w,
+                              {{ block.settings.image | img_url: '1000x' }} 1000w,
+                              {{ block.settings.image | img_url: '800x' }} 800w,
+                              {{ block.settings.image | img_url: '600x' }} 600w,
+                              {{ block.settings.image | img_url: '400x' }} 400w"
+                 />
+            {% else %}
+            {% capture i %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
+            {{ 'collection-' | append: i | placeholder_svg_tag: 'placeholder-svg placeholder-svg--promotions' }}
+            {% endif %}
+          </a>
+        </div>
+      </div>
+      <div class="featured-link--half">
+        <div class="info text-align--{{block.settings.frontpage_text_align}}">
+          <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="collection_title">
+            {{ block.settings.title }}
+          </a>
+          {% if block.settings.text != blank %}
+          <div class="description">{{ block.settings.text }}</div>
+          {% endif %}
+          {% if block.settings.button_label != blank %}
+          <a {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="button">
+            {{ block.settings.button_label }}
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </div>
+  {% if block.settings.layout == false %}
+</div>
+{% endif %}
+
+{% if block.settings.layout == false %}
+<style>
+  .standard--width .featured-link--margin {
+    margin-left: 0%;
+    margin-right: 3%;
+  }
+
+  .standard--width .image-align--right .featured-link--margin {
+    margin-left: 3%;
+    margin-right: 0%;
+  }
+
+  .standard--width .featured-link--half {
+    width: 45%;
+  }
+</style>
+{% endif %}

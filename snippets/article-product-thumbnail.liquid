@@ -1,0 +1,71 @@
+
+{% if sidebar %}
+  <div class="{% if products_per_row == 2 %}six columns {% cycle collection_group_thumb: 'alpha', 'omega' %}{% elsif products_per_row == 3 %}four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}{% elsif products_per_row == 4 %}three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}{% else %}one-fifth-sidebar column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}{% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+{% else %}
+  <div class="
+    {% if products_per_row == 2 %}
+      six columns {% cycle collection_group_thumb: 'alpha', 'omega' %}
+    {% elsif products_per_row == 3 %}
+      four columns {% cycle collection_group_thumb: 'alpha', '', 'omega' %}
+    {% elsif products_per_row == 4 %}
+      three columns {% cycle collection_group_thumb: 'alpha', '', '', 'omega' %}
+    {% elsif products_per_row == 5 %}
+      one-fifth column {% cycle collection_group_thumb: 'alpha', '', '', '', 'omega' %}
+    {% elsif products_per_row == 6 %}
+      one-sixth column {% cycle collection_group_thumb: 'alpha', '', '', '', '', 'omega' %}
+    {% else %}
+      one-seventh column {% cycle collection_group_thumb: 'alpha', '', '', '', '', '', 'omega' %}
+    {% endif %} thumbnail {% cycle collection_group_mobile: 'even', 'odd' %}">
+{% endif %}
+  
+
+  {% assign collection_handles = product.collections | map: 'handle' %}
+  {% if product.featured_image.alt contains 'youtube' or image.alt contains 'vimeo' %}
+    {% assign alt_text = product.title %}
+  {% else %}
+    {% assign alt_text = product.featured_image.alt %}
+  {% endif %}
+
+  {% if settings.align_height %}
+    {% assign collection_height = settings.collection_height | plus: 0 %}
+    {% assign product_aspect_ratio = product.featured_image.aspect_ratio | plus: 0 %}
+    {% assign product_set_width = product_aspect_ratio | times: collection_height %}
+
+    {% if product.featured_image.width >= product.featured_image.height %}
+      {% assign align_height_value = 'width: 100%; height: auto;' %}
+    {% else %}
+      {% assign align_height_value = 'width: 100%;' %}
+    {% endif %}
+ 
+  {% endif %}
+
+  <div class="product-wrap {% if settings.collection_secondary_image != blank and product.media[1] != blank %}has-secondary-media-swap{% endif %}">
+    <div class="relative product_image swap-{{ settings.collection_secondary_image }}">
+      <a href="{{ product.url | within: collection }}" itemprop="url">
+        <div class="image__container" style="{% if settings.align_height %} max-width: {{ product_set_width }}px; {% else %} max-width: {{ product.featured_image.width }}px; {% endif %}">
+          
+          {%
+            render 'image-element',
+            image: product.featured_media.preview_image,
+            alt: alt_text,
+            object_fit: align_height,
+            max_height: collection_height
+          %}
+          </div>
+          {% if settings.collection_secondary_image != blank %}
+            {%
+              render 'image-element',
+              image: product.media[1].preview_image,
+              alt: alt_text,
+              additional_classes: 'secondary lazypreload secondary-media-hidden'
+            %}
+          {% endif %}
+        </a>
+      {% include "product-details" %}
+    </div>
+    <a class="product-info__caption {% if settings.thumbnail_hover_enabled %}hidden{% endif %}" href="{{ product.url | within: collection }}" itemprop="url">
+      {% include "product-info" %}
+    </a>
+  </div>
+{% include 'collection-swatch' %}
+</div>

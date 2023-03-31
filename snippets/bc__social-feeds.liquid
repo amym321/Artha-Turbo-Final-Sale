@@ -1,0 +1,109 @@
+
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign instagram = block.settings.instagram %}
+  {% assign twitter = block.settings.twitter %}
+  {% assign shopify_attributes = block.settings.shopify_attributes %}
+  {% assign instagram_link = block.settings.instagram_link%}
+  {% assign instagram_title = block.settings.instagram_title %}
+  {% assign instagram_client_id = block.settings.instagram_client_id  %}
+  {% assign instagram_count = block.settings.instagram_count  %}
+  {% assign twitter_username = block.settings.twitter_username  %}
+  {% assign twitter_title = block.settings.twitter_title %}
+  {% assign twitter_theme  = block.settings.twitter_theme   %}
+  {% assign twitter_username = block.settings.twitter_username  %}
+  {% assign tweet_count = block.settings.tweet_count  %}
+
+{% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = block.settings.master-class %}
+  {% assign background-image = block.settings.background-image %}
+  {% assign background-color = block.settings.background-color %}
+  {% assign repeat-background = block.settings.repeat-background %}
+  {% assign background-size = block.settings.background-size %}
+  {% assign gradient_overlay = block.settings.gradient_overlay %}
+  {% assign gradient_direction = block.settings.gradient_direction%}
+  {% assign gradient_1 = block.settings.gradient_1 %}
+  {% assign gradient_2 = block.settings.gradient_2 %}
+  {% assign text-color = block.settings.text-color %}
+  {% assign heading-color = block.settings.heading-color %}
+  {% assign narrow = block.settings.narrow %}
+  {% assign index = block.id %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign instagram = section.settings.instagram %}
+  {% assign twitter = section.settings.twitter %}
+  {% assign shopify_attributes = section.settings.shopify_attributes %}
+  {% assign instagram_link = section.settings.instagram_link%}
+  {% assign instagram_title = section.settings.instagram_title %}
+  {% assign instagram_client_id = section.settings.instagram_client_id  %}
+  {% assign instagram_count = section.settings.instagram_count  %}
+  {% assign twitter_username = section.settings.twitter_username  %}
+  {% assign twitter_title = section.settings.twitter_title %}
+  {% assign twitter_theme  = section.settings.twitter_theme   %}
+  {% assign twitter_username = section.settings.twitter_username  %}
+  {% assign tweet_count = section.settings.tweet_count  %}
+{% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = section.settings.master-class %}
+  {% assign background-image = section.settings.background-image %}
+  {% assign background-color = section.settings.background-color %}
+  {% assign repeat-background = section.settings.repeat-background %}
+  {% assign background-size = section.settings.background-size %}
+  {% assign gradient_overlay = section.settings.gradient_overlay %}
+  {% assign gradient_direction = section.settings.gradient_direction%}
+  {% assign gradient_1 = section.settings.gradient_1 %}
+  {% assign gradient_2 = section.settings.gradient_2 %}
+  {% assign text-color = section.settings.text-color %}
+  {% assign heading-color = section.settings.heading-color %}
+  {% assign narrow = section.settings.narrow %}
+  {% assign index = section.id %}
+{% endif %}
+
+{% include "bc__snippet-styles" %}
+<div class="{{ block.settings.display-mode }} {{ master-class }} {{ class__background }}">
+  <div class="container content social-feeds-wrap">
+    <div class="section clearfix homepage_content">
+        {% if instagram %}
+          <div class="{% if instagram and twitter %}eight{% else %}sixteen{% endif %} columns" {{ shopify_attributes }}>
+            <h2 class="title insta {% unless instagram and twitter %}center{% endunless %}">
+              {% if instagram_link != blank %}
+                <a href="{{ instagram_link }}" target="_blank" class="{{ class__heading }}">
+              {% endif %}
+              {{ instagram_title }}
+              {% if settings.instagram_link != blank %}
+                </a>
+              {% endif %}
+            </h2>
+            {% if instagram_title != blank %}
+              <div class="feature_divider"></div>
+            {% endif %}
+
+            {% if instagram_client_id != blank %}
+              <div id="instafeed" class="js-instafeed" data-client-id="{{ instagram_client_id | strip }}" data-count="{{ instagram_count }}"></div>
+            {% else %}
+              <div id="instafeed" class="clearfix placeholder-instagram">
+                {% for i in (1..instagram_count) %}
+                  <div class="four columns instagram__item">
+                    <a href="#" class="instagram__link">
+                      {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder-svg--instagram' }}
+                    </a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if twitter %}
+          <div class="{% if instagram and twitter  %}eight{% else %}sixteen{% endif %} columns" {{ shopify_attributes }}>
+            <h2 class="title twitter {% unless instagram and twitter  %}center{% endunless %}">
+              <a href="https://twitter.com/{{ twitter_username | replace: "@", "" | strip }}" target="_blank" class="{{ class__heading }}">{{ twitter_title }}</a>
+            </h2>
+            {% if twitter_title != blank %}
+              <div class="feature_divider"></div>
+            {% endif %}
+            <a id="twitter-timeline" class="twitter-timeline" data-theme="{{ twitter_theme }}" href="https://twitter.com/{{ twitter_username | replace: "@", "" | strip }}" data-widget-id="319998048782647298" data-tweet-limit="{{ tweet_count }}" data-screen-name="{{ twitter_username | replace: "@", "" | strip }}" data-chrome="noheader nofooter noborders transparent" data-link-color="{{ settings.link_color }}" data-heading-style="color:{{ settings.link_color }};font-size:{{ settings.regular_font_size }}px;font-family: {{ settings.regular_font | replace: 'Google_', '' | replace: '+', ' ' | replace: '"', '' }}"></a>
+          </div>
+        {% endif %}
+    </div>
+  </div>
+</div>

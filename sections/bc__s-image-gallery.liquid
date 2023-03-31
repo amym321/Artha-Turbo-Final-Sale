@@ -1,0 +1,91 @@
+{% include 'bc__image-gallery' %}
+{% schema %}
+  {
+    "name": "BC Image Gallery",
+    "settings": [
+        {
+          "type": "image_picker",
+          "id": "page_landing_image_1",
+          "label": "Image 1",
+          "info": "760 x 500px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image1",
+          "label": "Optional mobile image"
+        },
+        {
+          "type": "image_picker",
+          "id": "page_landing_image_2",
+          "label": "Image 2",
+          "info": "760 x 500px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image2",
+          "label": "Optional mobile image"
+        },
+        {
+          "type": "image_picker",
+          "id": "page_landing_image_3",
+          "label": "Image 3",
+          "info": "760 x 500px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image3",
+          "label": "Optional mobile image"
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+	],
+	"presets": [
+    {
+      "name": "Image Gallery",
+      "category": "Blend Commerce",
+      "settings": {
+      }
+    }
+  ]
+  }
+{% endschema %}

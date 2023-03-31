@@ -1,0 +1,105 @@
+{% comment %}ly_global_begin{% endcomment %}{% include 'ly-global' %}{% comment %}ly_global_end{% endcomment %}
+{% if type == 'block' %}
+  {% assign id = block.id %}
+  {% assign rv_max_display  = block.settings.rv_max_display %}
+  {% assign rv_per  = block.settings.rv_per%}
+  {% assign rv_products_style  = block.settings.rv_products_style %}
+  {% assign rv_title  = block.settings.rv_title %}
+
+{% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = block.settings.master-class %}
+  {% assign background-image = block.settings.background-image %}
+  {% assign background-color = block.settings.background-color %}
+  {% assign repeat-background = block.settings.repeat-background %}
+  {% assign background-size = block.settings.background-size %}
+  {% assign gradient_overlay = block.settings.gradient_overlay %}
+  {% assign gradient_direction = block.settings.gradient_direction%}
+  {% assign gradient_1 = block.settings.gradient_1 %}
+  {% assign gradient_2 = block.settings.gradient_2 %}
+  {% assign text-color = block.settings.text-color %}
+  {% assign heading-color = block.settings.heading-color %}
+  {% assign narrow = block.settings.narrow %}
+  {% assign index = block.id %}
+{% else %}
+  {% assign id = section.id %}
+  {% assign rv_max_display  = section.settings.rv_max_display %}
+  {% assign rv_per  = section.settings.rv_per%}
+  {% assign rv_products_style  = section.settings.rv_products_style %}
+  {% assign rv_title  = section.settings.rv_title %}
+
+{% comment %}Extended--------------------------------------------------{% endcomment %}
+  {% assign master-class = section.settings.master-class %}
+  {% assign background-image = section.settings.background-image %}
+  {% assign background-color = section.settings.background-color %}
+  {% assign repeat-background = section.settings.repeat-background %}
+  {% assign background-size = section.settings.background-size %}
+  {% assign gradient_overlay = section.settings.gradient_overlay %}
+  {% assign gradient_direction = section.settings.gradient_direction%}
+  {% assign gradient_1 = section.settings.gradient_1 %}
+  {% assign gradient_2 = section.settings.gradient_2 %}
+  {% assign text-color = section.settings.text-color %}
+  {% assign heading-color = section.settings.heading-color %}
+  {% assign narrow = section.settings.narrow %}
+  {% assign index = section.id %}
+{% endif %}
+
+{% include "bc__snippet-styles" %}
+
+<div class="{{ block.settings.display-mode }} {{ master-class }} {{ class__background }}">
+{% if narrow %}<div class="container content ">{% endif %}
+  <div  class="js-recently-viewed hidden recently-viewed__section"
+        data-visible-products="{{ rv_max_display }}"
+    >
+    <div class="container bottom-fix">
+      <div class="related-products__title {% unless rv_products_style == 'slider' %}sixteen columns{% endunless %}">
+        <h2 class="title center {{ class__heading }}">{{ rv_title }}</h2>
+        <div class="feature_divider"></div>
+      </div>
+    </div>
+
+    {% assign limit = rv_max_display %}
+    {% assign loop_limit = rv_max_display | minus: 1 %}
+
+
+    {% if rv_products_style == 'slider' %}
+      {% assign visible_products = rv_per %}
+
+      <div class="rv-main js-rv-slider slider-gallery products-slider products-length-{{ rv_per }}"
+            data-products-per-slide="{{ visible_products }}"
+            data-products-limit="{{ limit }}"
+            >
+        {% for rvProducts in (0..loop_limit) %}
+          <div class="gallery-cell thumbnail rv-box-element rv-box-{{ rvProducts }} rv-element">
+            <!--Products are dynamically inserted-->
+          </div>
+        {% endfor %}
+      </div>
+
+    {% else %}
+      {% assign products_per_row = rv_per %}
+
+      {% unless sidebar %}<div class="container related-products--grid">{% endunless %}
+        <div class="sixteen columns">
+          <div class="rv-main js-rv-grid clearfix product-list collection-matrix"
+            data-products-per-slide="{{ rv_per }}"
+            data-products-limit="{{ limit }}">
+            {% for rvProducts in (0..loop_limit) %}
+              <div class="thumbnail rv-box-element rv-box-{{ rvProducts }} rv-element
+              {% if products_per_row == 3 %}
+                one-third column {% cycle 'alpha', '', 'omega' %}
+              {% elsif products_per_row == 4 %}
+                four columns {% cycle 'alpha', '', '', 'omega' %}
+              {% elsif products_per_row == 5 %}
+                one-fifth column {% cycle 'alpha', '', '', '', 'omega' %}
+              {% endif %}
+              {% cycle 'even', 'odd' %}">
+                <!--Products are dynamically inserted-->
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% if narrow %}</div>{% endif %}
+</div>

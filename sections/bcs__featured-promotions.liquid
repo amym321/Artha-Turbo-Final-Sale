@@ -1,0 +1,313 @@
+{% include 'bc__featured-promotions' %}
+
+{% schema %}
+{
+  "name": "Featured promotions",
+  "class": "featured-promotions-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "featured_promos_per_row",
+      "label": "Promotions per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_promos_grid",
+      "label": "Wide display",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "featured_links_animation",
+      "label": "Promotions animation",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "fadeIn",
+          "label": "Fade In"
+        },
+        {
+          "value": "fadeInUp",
+          "label": "Fade Up"
+        },
+        {
+          "value": "fadeInDown",
+          "label": "Fade Down"
+        }
+      ],
+      "default": "fadeInDown"
+    },
+    {
+      "type": "select",
+      "id": "feature_style",
+      "label": "Promotions style",
+      "options": [
+        {
+          "value": "circle",
+          "label": "Circle"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        }
+      ],
+      "default": "square"
+    },
+    {
+      "type": "checkbox",
+      "id": "promo_text_on_image_enabled",
+      "label": "Show title on image",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image",
+      "info": "840 x 840px recommended"
+    },
+	{
+      "type": "image_picker",
+      "id": "mobile-image1",
+      "label": "Optional mobile image"
+    },
+    {
+      "type": "url",
+      "id": "link1",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Header",
+      "default": "Feature"
+    },
+    {
+      "type": "richtext",
+      "id": "text1",
+      "label": "Text",
+      "default": "<p>Promotion description details.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label1",
+      "label": "Button label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image",
+      "info": "840 x 840px recommended"
+    },
+	{
+      "type": "image_picker",
+      "id": "mobile-image2",
+      "label": "Optional mobile image"
+    },
+    {
+      "type": "url",
+      "id": "link2",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Header",
+      "default": "Feature"
+    },
+    {
+      "type": "richtext",
+      "id": "text2",
+      "label": "Text",
+      "default": "<p>Promotion description details.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label2",
+      "label": "Button label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image3",
+      "label": "Image",
+      "info": "840 x 840px recommended"
+    },
+	{
+      "type": "image_picker",
+      "id": "mobile-image3",
+      "label": "Optional mobile image"
+    },
+    {
+      "type": "url",
+      "id": "link3",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "Header",
+      "default": "Feature"
+    },
+    {
+      "type": "richtext",
+      "id": "text3",
+      "label": "Text",
+      "default": "<p>Promotion description details.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label3",
+      "label": "Button label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image4",
+      "label": "Image",
+      "info": "840 x 840px recommended"
+    },
+	{
+      "type": "image_picker",
+      "id": "mobile-image4",
+      "label": "Optional mobile image"
+    },
+    {
+      "type": "url",
+      "id": "link4",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "title4",
+      "label": "Header",
+      "default": "Feature"
+    },
+    {
+      "type": "richtext",
+      "id": "text4",
+      "label": "Text",
+      "default": "<p>Promotion description details.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label4",
+      "label": "Button label"
+    },
+	{
+      "type": "color",
+      "id": "heading-color",
+      "label": "Heading color"
+    },
+    {
+      "type": "color",
+      "id": "text-color",
+      "label": "Text color"
+    },
+	{
+      "type": "image_picker",
+      "id": "background-image",
+      "label": "Background image"
+    },
+	{
+      "type": "checkbox",
+      "id": "repeat-background",
+      "label": "Repeat background image",
+      "default": false
+    },
+	{
+      "type": "select",
+      "id": "background-size",
+      "label": "Background size",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        },
+        {
+          "value": "auto",
+          "label": "Auto"
+        }
+      ]
+    },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+	{
+      "type": "color",
+      "id": "background-color",
+      "label": "Background color"
+    },
+	{
+      "type": "text",
+      "id": "master-class",
+      "label": "DEVELOPER USE ONLY",
+      "info":"Add custom class name to this snippet"
+    }
+  ],
+  "presets": [{
+    "name": "Featured promotions",
+    "category": "Blend Commerce",
+    "settings": {
+      "featured_promos_grid": "full_width"
+    }
+  }]
+}
+
+{% endschema %}

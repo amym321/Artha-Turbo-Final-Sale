@@ -1,0 +1,529 @@
+
+{% include 'bc__slideshow' %}
+
+{% schema %}
+
+{
+  "name": "Slideshow",
+  "class": "slideshow-section under-menu",
+  "settings": [
+    	{
+      	  "type": "select",
+      	  "id": "slideshow_text_animation",
+      	  "label": "Text animation",
+      	  "options": [
+        	{
+          	  "value": "",
+          	  "label": "None"
+        	},
+        	{
+          	  "value": "fadeIn",
+          	  "label": "Fade In"
+        	},
+        	{
+          	  "value": "fadeInUp",
+          	  "label": "Fade Up"
+        	},
+        	{
+          	  "value": "fadeInDown",
+          	  "label": "Fade Down"
+        	}
+      	  ],
+      	  "default": "fadeInDown"
+    	},
+    	{
+      	  "type": "select",
+      	  "id": "slideshow_animation",
+      	  "label": "Gallery transition",
+      	  "options": [
+        	{
+          	  "value": "slide",
+          	  "label": "Slide"
+        	},
+        	{
+          	  "value": "fade",
+          	  "label": "Fade"
+        	}
+      	  ],
+      	  "default": "slide"
+    	},
+    	{
+      	  "type": "select",
+      	  "id": "slideshow_speed",
+      	  "label": "Slideshow speed",
+      	  "default": "6000",
+      	  "options": [
+        	{
+          	  "value": "0",
+          	  "label": "None"
+        	},
+        	{
+          	  "value": "4000",
+          	  "label": "4 seconds"
+        	},
+        	{
+          	  "value": "6000",
+          	  "label": "6 seconds"
+        	},
+        	{
+          	  "value": "10000",
+          	  "label": "10 seconds"
+        	}
+      	  ]
+    	},
+  		{
+          "type": "image_picker",
+          "id": "image1",
+          "label": "Image",
+          "info": "1600 x 1000px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image1",
+          "label": "Optional mobile image"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext1",
+          "label": "Preheading"
+        },
+        {
+          "type": "text",
+          "id": "title1",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle1",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "text_position1",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align1",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "over_image1",
+          "label": "Keep caption over image on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background1",
+          "label": "Display text background"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency1",
+          "label": "Enable text background transparency"
+        },
+        {
+          "type": "text",
+          "id": "button1_1",
+          "label": "First button label"
+        },
+        {
+          "type": "url",
+          "id": "button1_link_1",
+          "label": "First button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight_1",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2_1",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link_1",
+          "label": "Second button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight_1",
+          "label": "Highlight second button"
+        },
+  		{
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image",
+          "info": "1600 x 1000px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image2",
+          "label": "Optional mobile image"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext2",
+          "label": "Preheading"
+        },
+        {
+          "type": "text",
+          "id": "title2",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle2",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "text_position2",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align2",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "over_image2",
+          "label": "Keep caption over image on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background2",
+          "label": "Display text background"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency2",
+          "label": "Enable text background transparency"
+        },
+        {
+          "type": "text",
+          "id": "button1_2",
+          "label": "First button label"
+        },
+        {
+          "type": "url",
+          "id": "button1_link_2",
+          "label": "First button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight_2",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2_2",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link_2",
+          "label": "Second button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight_2",
+          "label": "Highlight second button"
+        },
+  		{
+          "type": "image_picker",
+          "id": "image3",
+          "label": "Image",
+          "info": "1600 x 1000px recommended"
+        },
+		{
+          "type": "image_picker",
+          "id": "mobile-image3",
+          "label": "Optional mobile image"
+        },
+        {
+          "type": "richtext",
+          "id": "pretext3",
+          "label": "Preheading"
+        },
+        {
+          "type": "text",
+          "id": "title3",
+          "label": "Heading",
+          "default": "Your headline"
+        },
+        {
+          "type": "richtext",
+          "id": "subtitle3",
+          "label": "Subheading"
+        },
+        {
+          "type": "select",
+          "id": "text_position3",
+          "label": "Text position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "select",
+          "id": "text_align3",
+          "label": "Text alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "over_image3",
+          "label": "Keep caption over image on mobile",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background3",
+          "label": "Display text background"
+        },
+        {
+          "type": "checkbox",
+          "id": "caption_background_transparency3",
+          "label": "Enable text background transparency"
+        },
+        {
+          "type": "text",
+          "id": "button1_3",
+          "label": "First button label"
+        },
+        {
+          "type": "url",
+          "id": "button1_link_3",
+          "label": "First button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button1_highlight_3",
+          "label": "Highlight first button"
+        },
+        {
+          "type": "text",
+          "id": "button2_3",
+          "label": "Second button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link_3",
+          "label": "Second button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button2_highlight_3",
+          "label": "Highlight second button"
+        },
+		{
+          "type": "color",
+          "id": "heading-color",
+          "label": "Heading color"
+        },
+		{
+          "type": "color",
+          "id": "text-color",
+          "label": "Text color"
+        },
+		{
+          "type": "checkbox",
+          "id": "narrow",
+          "label": "Restrict content width",
+		  "info":"Background elements will only work if this is enabled",
+		  "default": false
+        },
+		{
+          "type": "image_picker",
+          "id": "background-image",
+          "label": "Background image"
+        },
+		{
+          "type": "checkbox",
+          "id": "repeat-background",
+          "label": "Repeat background image",
+		  "default": false
+        },
+		{
+          "type": "select",
+          "id": "background-size",
+          "label": "Background size",
+          "default": "cover",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover"
+            },
+            {
+              "value": "contain",
+              "label": "Contain"
+            },
+            {
+              "value": "auto",
+              "label": "Auto"
+            }
+          ]
+        },
+		{
+          "type": "color",
+          "id": "background-color",
+          "label": "Background color"
+        },
+        {
+          "type": "checkbox",
+          "id": "gradient_overlay",
+          "label": "Use gradient overlay",
+          "default": false
+        },
+		{
+          "type": "select",
+          "id": "gradient_direction",
+          "label": "Gradient direction",
+          "options": [
+            {
+              "value": "left_right",
+              "label": "Left to right"
+            },
+            {
+              "value": "right_left",
+              "label": "Right to left"
+            },
+            {
+              "value": "top_bottom",
+              "label": "Top to bottom"
+            },
+            {
+             "value": "bottom_top",
+              "label": "Bottom to top"
+            },
+            {
+              "value": "radial",
+              "label": "Radial"
+            }
+          ],
+          "default": "left_right"
+        },
+        {
+          "type": "color",
+          "id": "gradient_1",
+          "label": "First color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "gradient_2",
+          "label": "Second color",
+          "default": "#000000"
+        },
+		{
+          "type": "text",
+          "id": "master-class",
+          "label": "DEVELOPER USE ONLY",
+          "info":"Add custom class name to this snippet"
+        }
+  ],
+	"presets": [
+    {
+      "name": "Slideshow",
+      "category": "Blend Commerce",
+      "settings": {
+      }
+    }
+  ]
+}
+
+{% endschema %}

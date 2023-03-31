@@ -1,0 +1,43 @@
+{% comment %} code added - am. added classes menu-padding-social, menu-padding-all, link-color, social-link-box  {% endcomment %}
+<div class="vertical-menu">
+  {% for link in linklists[linklist].links %}
+    {% if linklists[link.handle] == empty %}
+    <li><a href="{{ link.url }}" 
+      class="top_link {% if link.url == '#' %}url-deadlink{% endif %} {% if link.active %}active{% endif %}
+      menu-padding-all {% if link.title contains 'Social' or link.title contains 'sozialer' %} menu-padding-social {% endif %} 
+      {% if link.title contains 'Inspiration' %} .vertical-menu_submenu.vertical-menu--align-right-inspiration {% endif %}"
+      data-dropdown-rel="{{ link.handle }}">{{ link.title }}</a></li>
+    {% else %}
+      <li class="sublink">
+        <a data-no-instant href="{{ link.url }}" class="menu-padding-all 
+        {% if link.title contains 'Social' or link.title contains 'sozialer' %} menu-padding-social link-color {% endif %}
+        {% if link.title contains 'Inspiration' %} .vertical-menu_submenu.vertical-menu--align-right-inspiration {% endif %}
+        dropdown_link--vertical {% if link.url == '#' %}url-deadlink{% endif %} {% if link.active %}active{% endif %}" data-dropdown-rel="{{ link.handle }}">{{ link.title }}
+          {% comment %} added code - am. no down arrows on links {% endcomment %} {% comment %} 
+          <span class="icon-down-arrow"></span>
+          {% endcomment %} 
+        </a>        
+        <ul class="vertical-menu_submenu {% if link.title contains 'Social' or link.title contains 'sozialer' %} social-link-box {% endif %}">
+          {% for link in linklists[link.handle].links %}
+            {% if linklists[link.handle] == empty %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% else %}
+            <li class="sublink">
+              <a data-no-instant href="{{ link.url }}" class="{% if link.url == '#' %}url-deadlink{% endif %}">{{ link.title }} 
+                {% comment %} no down arrows on links {% endcomment %} {% comment %} 
+                <span class="icon-down-arrow"></span>
+                {% endcomment %} 
+              </a>
+              <ul class="vertical-menu_sub-submenu">
+                {% for link in linklists[link.handle].links %}
+                  <li><a href="{{ link.url }}" class="{% if link.url == '#' %}url-deadlink{% endif %}" >{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endif %}
+  {% endfor %}
+</div>
