@@ -210,7 +210,14 @@
                 </span>
               {% endif %}
             </p>
+
+            {% comment %} final sale tag - am  {% endcomment %}
+            {% assign final_sale = false %}
+
           {% for tag in product.tags %}
+            {% if tag contains "final-sale" %}
+              {% assign final_sale = true %}
+            {% endif %}
             {% if tag contains 'exclude vat' %}
           	  <style>
                 .vat-price-popup{
@@ -219,6 +226,10 @@
           	  </style>
             {% endif %}
           {% endfor %}
+
+          {% if final_sale %}
+            <span class="final-sale" >Final Sale</span>
+          {% endif %}
           
           {% if section.settings.vat %}
           <div class="center"><p class="vatPrice"><em>Excl. VAT<div class="tooltip">(?)<span class="tooltiptext" {% if section.settings.tooltipcolor != "" %}style="background: {{ section.settings.tooltipcolor }}{% endif %}">{{ section.settings.vat-pricing }}</span></div></em></p></div>

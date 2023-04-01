@@ -16,6 +16,9 @@
   {% endif %}
 {% endfor %}
 
+
+
+
 <div
   class="
     product_form
@@ -40,6 +43,13 @@
   data-product-id="{{ product.id }}"
 >
   {% form 'product', product %}
+
+  {% comment %} final sale tag - am  {% endcomment %}
+  {% for tag in product.tags %}
+    {% if tag contains "final-sale" %}
+      <input id="final-sale" type="hidden" value="final-sale" name="properties[final-sale]">
+    {% endif %}
+  {% endfor %}
 
   <div
     class="

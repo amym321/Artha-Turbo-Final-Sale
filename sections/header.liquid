@@ -326,11 +326,16 @@
 
                               {% if item.properties %}
                                 {% for p in item.properties %}
-                                  {% if p.last != blank %}
-                                    <div class="line-item">
-                                      {{ p.first }}: {{ p.last }}
-                                    </div>
+                                  {% if p contains "final-sale" %}
+                                    <div class="final-sale">Final Sale</div>
                                   {% endif %}
+                                  {% unless p contains "final-sale" %}
+                                    {% if p.last != blank %}
+                                      <div class="line-item">
+                                        {{ p.first }}: {{ p.last }}
+                                      </div>
+                                    {% endif %}
+                                  {% endunless %}
                                 {% endfor %}
                               {% endif %}
                             </a>

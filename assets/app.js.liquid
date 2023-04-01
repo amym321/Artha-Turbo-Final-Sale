@@ -587,8 +587,11 @@ $(() => {
 
         if (item.properties) {
           $.each(item.properties, (title, value) => {
-            if (value) {
+            if (value && value != 'final-sale') {
               cartItemsHTML += `<div class="line-item">${title}: ${value} </div>`;
+            }
+            if (value && value == 'final-sale') {
+              cartItemsHTML += `<div class="line-item final-sale">${value} </div>`;
             }
           });
         }

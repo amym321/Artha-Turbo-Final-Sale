@@ -69,16 +69,22 @@
                 {% if item.properties %}
                   <p>
                     {% for p in item.properties %}
-                      {% unless p.last == blank or p.first == "_title" %}
-                        {% if p.last contains '/uploads/' %}
-                          <div>
-                            {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
-                          </div>
-                        {% else %}
-                          <div>
-                            {{ p.first }}: {{ p.last }}
-                          </div>
-                        {% endif %}
+                      {% comment %} final sale tag - am {% endcomment %}
+                      {% if p contains "final-sale" %}
+                        <span class="final-sale">Final Sale</span>
+                      {% endif %}
+                      {% unless p contains "final-sale" %}
+                        {% unless p.last == blank or p.first == "_title" %}
+                          {% if p.last contains '/uploads/' %}
+                            <div>
+                              {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
+                            </div>
+                          {% else %}
+                            <div>
+                              {{ p.first }}: {{ p.last }}
+                            </div>
+                          {% endif %}
+                        {% endunless %}
                       {% endunless %}
                     {% endfor %}
                   </p>
@@ -94,6 +100,8 @@
                   {% if item.price < item.variant.compare_at_price %}
                     <span class="money was_price">{{ item.variant.compare_at_price | money }}</span>
                   {% endif %}
+
+                  {% comment %} final sale tag - am  {% endcomment %}
                 </p>
 
                 <div class="product-quantity-box left">
